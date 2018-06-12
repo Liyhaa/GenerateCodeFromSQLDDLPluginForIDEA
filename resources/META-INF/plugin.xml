@@ -1,0 +1,41 @@
+<idea-plugin>
+  <id>com.leoyork.plugin.generateCode</id>
+  <name>GenerateCode</name>
+  <version>1.0</version>
+  <vendor email="daohaozhes77@163.com" url="null">LeoYork</vendor>
+
+  <description><![CDATA[
+      You can use this plugin for generating code from different sources like SqlDDL or JSON, but now, this version can only generate from SqlDDL.<br>
+      Just select the row you want to generate, and press ALT + G.<br>
+      You don't have to select all the text, just make sure that you select the row like using ALT + /.
+      <em>yeah</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      First Version.<br>
+      <em>yeah</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <action id="generateFiledFromSqlDDL" class="com.leoyork.plugin.action.GetCodeAction" text="generateFiledFromSqlDDL"
+            description="generateFiledFromSqlDDL">
+      <add-to-group group-id="GenerateGroup" anchor="last"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="alt G"/>
+    </action>
+  </actions>
+
+</idea-plugin>
