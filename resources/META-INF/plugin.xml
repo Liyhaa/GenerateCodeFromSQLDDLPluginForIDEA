@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.leoyork.plugin.generateCode</id>
   <name>GenerateCode</name>
-  <version>1.0</version>
+  <version>1.1</version>
   <vendor email="daohaozhes77@163.com" url="null">LeoYork</vendor>
 
   <description><![CDATA[
@@ -12,7 +12,7 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      First Version.<br>
+      1.0.1 now you can use ALT + X to copy fields to Clipboard with Json style.<br>
       <em>yeah</em>
     ]]>
   </change-notes>
@@ -36,6 +36,11 @@
       <add-to-group group-id="GenerateGroup" anchor="last"/>
       <keyboard-shortcut keymap="$default" first-keystroke="alt G"/>
     </action>
+      <action id="GetJsonFromFilds" class="com.leoyork.plugin.action.GetJsonAction" text="GetJsonFromFilds"
+              description="GetJsonFromFilds">
+          <add-to-group group-id="GenerateGroup" anchor="last"/>
+          <keyboard-shortcut keymap="$default" first-keystroke="alt X"/>
+      </action>
   </actions>
 
 </idea-plugin>
