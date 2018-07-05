@@ -19,6 +19,8 @@ import java.util.regex.Pattern;
  */
 public class MyEditorHelper {
 
+    private static Pattern PACKAGE_ALL = Pattern.compile("import .*\\*;");
+
     /**
      * 获取所选行的所有内容并选中所有选中行
      * @param var1
@@ -132,14 +134,24 @@ public class MyEditorHelper {
         }
         String className = sb.toString();
 
+        sb = new StringBuffer();
         pattern = Pattern.compile("import .*"+className);
         matcher = pattern.matcher(context);
         if(matcher.find()) {
             String row = matcher.group();
-            className = row.substring("import ".length());
+            sb.append(row.substring("import ".length()));
+        } else {
+            matcher = PACKAGE_ALL.matcher(context);
+            while (matcher.find()) {
+                if(sb.length() != 0) {
+                    sb.append(",");
+                }
+                String group = matcher.group();
+                sb.append(group.substring("import ".length(), group.indexOf("*")) + className);
+            }
         }
 
-        return className;
+        return sb.toString();
     }
 
     /**

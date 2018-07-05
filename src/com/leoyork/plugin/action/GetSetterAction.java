@@ -60,7 +60,13 @@ public class GetSetterAction extends EditorAction {
 
 //        PsiElementFactory factory = psiFacade.getElementFactory();
 //        PsiClass psiClass = factory.createClass(name.substring(0, 1).toUpperCase() + name.substring(1));
-        PsiClass psiClass = psiFacade.findClass(className, GlobalSearchScope.everythingScope(psiFile.getProject()));
+        PsiClass psiClass = null;
+        for (String path:className.split(",")) {
+            psiClass = psiFacade.findClass(path, GlobalSearchScope.everythingScope(psiFile.getProject()));
+            if(null != psiClass) {
+                break;
+            }
+        }
         if(null == psiClass) {
             return "";
         }
@@ -80,10 +86,19 @@ public class GetSetterAction extends EditorAction {
 //        PsiClass psiClass = JavaDirectoryService.getInstance().createClass(psiDirectory, name);
 
         PsiField[] psiFields = psiClass.getAllFields();
+        PsiMethod[] psiMethods = psiClass.getAllMethods();
+        StringBuffer allMethods = new StringBuffer();
+        for (PsiMethod method:psiMethods) {
+            allMethods.append(method.getName());
+        }
         for (PsiField psiField:psiFields) {
             String fieldName = psiField.getName();
-            sb.append("\t\t"+name+".set"+fieldName.substring(0, 1).toUpperCase()+fieldName.substring(1)+"();\n");
+            String methodName = "set"+fieldName.substring(0, 1).toUpperCase()+fieldName.substring(1);
+            if(0 <= allMethods.indexOf(methodName)) {
+                sb.append("\t\t" + name + "." + methodName + "();\n");
+            }
         }
+        sb.deleteCharAt(sb.length()-1);
 
         return sb.toString();
     }

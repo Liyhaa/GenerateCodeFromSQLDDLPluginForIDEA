@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5dbce4de-e2a0-45a0-a68c-f7c9522dae5c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/leoyork/plugin/action/GetSetterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leoyork/plugin/action/GetSetterAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/leoyork/plugin/action/helper/MyEditorHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leoyork/plugin/action/helper/MyEditorHelper.java" afterDir="false" />
     </list>
@@ -22,8 +24,8 @@
       <file leaf-file-name="GetCodeAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/GetCodeAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+            <state relative-caret-position="293">
+              <caret line="33" column="54" lean-forward="true" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,8 +48,8 @@
       <file leaf-file-name="MyEditorHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/helper/MyEditorHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="125" column="73" lean-forward="true" selection-start-line="125" selection-start-column="73" selection-end-line="125" selection-end-column="73" />
+            <state relative-caret-position="412">
+              <caret line="153" selection-start-line="153" selection-end-line="153" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,8 +60,8 @@
       <file leaf-file-name="GetSetterAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/GetSetterAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+            <state relative-caret-position="242">
+              <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -123,8 +125,8 @@
         <option value="$PROJECT_DIR$/src/com/leoyork/plugin/action/GetCodeAction.java" />
         <option value="$PROJECT_DIR$/src/com/leoyork/plugin/action/GetJsonAction.java" />
         <option value="$PROJECT_DIR$/src/com/leoyork/plugin/action/helper/StringHelper.java" />
-        <option value="$PROJECT_DIR$/src/com/leoyork/plugin/action/GetSetterAction.java" />
         <option value="$PROJECT_DIR$/src/com/leoyork/plugin/action/helper/MyEditorHelper.java" />
+        <option value="$PROJECT_DIR$/src/com/leoyork/plugin/action/GetSetterAction.java" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
       </list>
     </option>
@@ -156,9 +158,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -203,6 +204,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -305,7 +307,9 @@
       <workItem from="1528860668173" duration="305000" />
       <workItem from="1530696721674" duration="8455000" />
       <workItem from="1530752593054" duration="2428000" />
-      <workItem from="1530755084286" duration="1612000" />
+      <workItem from="1530755084286" duration="1737000" />
+      <workItem from="1530756879622" duration="1554000" />
+      <workItem from="1530758482771" duration="2022000" />
     </task>
     <task id="LOCAL-00001" summary="add alt+x to copy Json code from java fields">
       <created>1530754877548</created>
@@ -314,11 +318,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530754877548</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix some bug">
+      <created>1530756770588</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1530756770588</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41303000" />
+    <option name="totallyTimeSpent" value="45004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -345,10 +356,10 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.32827735" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="JRebel remote servers log" order="7" sideWeight="0.5021322" side_tool="true" weight="0.39933258" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49359885" visible="true" weight="0.2771855" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49295774" visible="true" weight="0.19829424" />
       <window_info id="JRebel" order="2" sideWeight="0.5092461" side_tool="true" weight="0.2739872" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" sideWeight="0.5064011" side_tool="true" visible="true" weight="0.2771855" />
+      <window_info id="Favorites" order="2" sideWeight="0.5064935" side_tool="true" weight="0.2803838" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -375,14 +386,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add alt+x to copy Json code from java fields" />
-    <option name="LAST_COMMIT_MESSAGE" value="add alt+x to copy Json code from java fields" />
+    <MESSAGE value="fix some bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix some bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="56" />
+      <option name="time" value="66" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -505,13 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/com/intellij/openapi/application/impl/ApplicationImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="1236" selection-start-line="1236" selection-end-line="1236" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/openapi/actionSystem/AnActionEvent.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -529,10 +534,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/openapi/editor/actionSystem/EditorWriteActionHandler.class">
+    <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/helper/StringHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="272">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/com/intellij/openapi/application/impl/ApplicationImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="1236" selection-start-line="1236" selection-end-line="1236" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/GetCodeAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="33" column="54" lean-forward="true" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -546,37 +568,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/GetCodeAction.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-api.jar!/com/intellij/openapi/editor/actionSystem/EditorWriteActionHandler.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/helper/StringHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/GetSetterAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+        <state relative-caret-position="71">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/helper/MyEditorHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="125" column="73" lean-forward="true" selection-start-line="125" selection-start-column="73" selection-end-line="125" selection-end-column="73" />
+        <state relative-caret-position="412">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/leoyork/plugin/action/GetSetterAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
         </state>
       </provider>
     </entry>
