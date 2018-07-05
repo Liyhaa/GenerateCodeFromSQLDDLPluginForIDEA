@@ -3,6 +3,7 @@ package com.leoyork.plugin.action;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.editor.Caret;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.EditorModificationUtil;
 import com.intellij.openapi.editor.actionSystem.EditorAction;
 import com.intellij.openapi.editor.actionSystem.EditorWriteActionHandler;
 import com.leoyork.plugin.action.helper.MyEditorHelper;
@@ -31,7 +32,6 @@ public class GetJsonAction extends EditorAction {
 
             //复制到剪切板
             MyEditorHelper.setSysClipboardText(getJsonFromFields(txt));
-
         }
 
     }

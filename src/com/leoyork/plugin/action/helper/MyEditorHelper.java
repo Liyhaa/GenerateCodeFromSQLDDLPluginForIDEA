@@ -8,6 +8,10 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author leoyork
@@ -15,6 +19,11 @@ import java.awt.datatransfer.Transferable;
  */
 public class MyEditorHelper {
 
+    /**
+     * 获取所选行的所有内容并选中所有选中行
+     * @param var1
+     * @return
+     */
     public static String getTextFromSelectRow(final Editor var1) {
         SelectionModel sm = var1.getSelectionModel();
         CaretModel cm = var1.getCaretModel();
@@ -48,6 +57,88 @@ public class MyEditorHelper {
 
         //获取选中的内容
         return sm.getSelectedText();
+    }
+
+    /**
+     * 获取当前选中内容并取消选中将光标移动至末尾
+     * @param var1
+     * @return
+     */
+    public static Map<String, String> getTextFromSelection(final Editor var1) {
+        Map<String, String> map = new HashMap<String, String>();
+        SelectionModel sm = var1.getSelectionModel();
+        CaretModel cm = var1.getCaretModel();
+
+        int end = sm.getSelectionEnd();
+        String txt = sm.getSelectedText();
+
+        String context = getTextAbove(var1);
+
+        cm.moveToOffset(end);
+        cm.moveCaretRelatively(9999, 0, true, false, false);
+        sm.removeSelection();
+        map.put("txt", txt);
+        map.put("context", context);
+
+        return map;
+    }
+
+    /**
+     * 获取光标位置至文件头的所有内容
+     * @param var1
+     * @return
+     */
+    public static String getTextAbove(final Editor var1){
+
+        SelectionModel sm = var1.getSelectionModel();
+        CaretModel cm = var1.getCaretModel();
+
+        cm.moveCaretRelatively(-9999, 0, true, false, false);
+        while (sm.getSelectionStart() > 0) {
+            //参数含义：
+            //向后移动字符数
+            //向下移动行数
+            //移动同时是否选中
+            //4 5 不清楚
+            //由于第一个参数无法跨行，每次选取一行
+            cm.moveCaretRelatively(-9999, -1, true, false, false);
+        }
+        String txt = sm.getSelectedText();
+        sm.removeSelection();
+        return txt;
+    }
+
+    /**
+     * 获取当前文件中引入的该类的包名
+     * @return
+     */
+    public static String getClassName(String name, String context){
+        //获取类名
+        StringBuffer sb = new StringBuffer();
+        do{
+            sb.append(name.substring(0, 1).toUpperCase());
+            if(name.indexOf('_') >= 0) {
+                sb.append(name.substring(1, name.indexOf('_')));
+                name = name.substring(name.indexOf('_') + 1);
+            } else {
+                sb.append(name.substring(1));
+                name = "";
+            }
+        } while (name.indexOf('_') >= 0);
+        if(name.length() > 0) {
+            sb.append(name.substring(0, 1).toUpperCase());
+            sb.append(name.substring(1));
+        }
+        String className = sb.toString();
+
+        Pattern pattern = Pattern.compile("import .*"+className);
+        Matcher matcher = pattern.matcher(context);
+        if(matcher.find()) {
+            String row = matcher.group();
+            className = row.substring("import ".length());
+        }
+
+        return className;
     }
 
     /**

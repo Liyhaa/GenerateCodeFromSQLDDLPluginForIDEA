@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.leoyork.plugin.generateCode</id>
   <name>GenerateCode</name>
-  <version>1.1</version>
+  <version>1.2</version>
   <vendor email="daohaozhes77@163.com" url="null">LeoYork</vendor>
 
   <description><![CDATA[
@@ -13,6 +13,7 @@
 
   <change-notes><![CDATA[
       1.0.1 now you can use ALT + X to copy fields to Clipboard with Json style.<br>
+      1.2 now you can use CTRL + SHIFT + G to generate all getter method for a variable. It would generate all the field's getter even you don't have the getter.<br>
       <em>yeah</em>
     ]]>
   </change-notes>
@@ -41,6 +42,11 @@
           <add-to-group group-id="GenerateGroup" anchor="last"/>
           <keyboard-shortcut keymap="$default" first-keystroke="alt X"/>
       </action>
+    <action id="generateSetter" class="com.leoyork.plugin.action.GetSetterAction" text="generateSetter"
+            description="generateSetterFromName">
+      <add-to-group group-id="GenerateGroup" anchor="last"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl G"/>
+    </action>
   </actions>
 
 </idea-plugin>
