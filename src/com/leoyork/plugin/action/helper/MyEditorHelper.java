@@ -72,6 +72,7 @@ public class MyEditorHelper {
         int end = sm.getSelectionEnd();
         String txt = sm.getSelectedText();
 
+        cm.moveCaretRelatively(9999, 0, true, false, false);
         String context = getTextAbove(var1);
 
         cm.moveToOffset(end);
@@ -93,6 +94,7 @@ public class MyEditorHelper {
         SelectionModel sm = var1.getSelectionModel();
         CaretModel cm = var1.getCaretModel();
 
+        sm.removeSelection();
         cm.moveCaretRelatively(-9999, 0, true, false, false);
         while (sm.getSelectionStart() > 0) {
             //参数含义：
@@ -115,24 +117,23 @@ public class MyEditorHelper {
     public static String getClassName(String name, String context){
         //获取类名
         StringBuffer sb = new StringBuffer();
-        do{
-            sb.append(name.substring(0, 1).toUpperCase());
-            if(name.indexOf('_') >= 0) {
-                sb.append(name.substring(1, name.indexOf('_')));
-                name = name.substring(name.indexOf('_') + 1);
-            } else {
-                sb.append(name.substring(1));
-                name = "";
+        Pattern pattern = Pattern.compile("([A-Z][a-z]*)* *"+name+" *=");
+        Matcher matcher = pattern.matcher(context);
+        if(matcher.find()) {
+            String group = matcher.group();
+            sb.append(group.trim().substring(0, matcher.group().indexOf(name)-1));
+        } else {
+            pattern = Pattern.compile("([A-Z][a-z]*)* *" + name + " *;");
+            matcher = pattern.matcher(context);
+            if(matcher.find()) {
+                String group = matcher.group();
+                sb.append(group.trim().substring(0, matcher.group().indexOf(name)));
             }
-        } while (name.indexOf('_') >= 0);
-        if(name.length() > 0) {
-            sb.append(name.substring(0, 1).toUpperCase());
-            sb.append(name.substring(1));
         }
         String className = sb.toString();
 
-        Pattern pattern = Pattern.compile("import .*"+className);
-        Matcher matcher = pattern.matcher(context);
+        pattern = Pattern.compile("import .*"+className);
+        matcher = pattern.matcher(context);
         if(matcher.find()) {
             String row = matcher.group();
             className = row.substring("import ".length());

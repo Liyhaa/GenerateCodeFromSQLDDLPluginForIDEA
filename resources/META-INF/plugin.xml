@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.leoyork.plugin.generateCode</id>
   <name>GenerateCode</name>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <vendor email="daohaozhes77@163.com" url="null">LeoYork</vendor>
 
   <description><![CDATA[

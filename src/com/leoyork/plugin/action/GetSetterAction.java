@@ -61,7 +61,9 @@ public class GetSetterAction extends EditorAction {
 //        PsiElementFactory factory = psiFacade.getElementFactory();
 //        PsiClass psiClass = factory.createClass(name.substring(0, 1).toUpperCase() + name.substring(1));
         PsiClass psiClass = psiFacade.findClass(className, GlobalSearchScope.everythingScope(psiFile.getProject()));
-
+        if(null == psiClass) {
+            return "";
+        }
 //        psiFile.getReference();
 //        PsiDirectory psiDirectory = psiFile.getParent();
 //        List<String> childDirectory = new ArrayList<>();
