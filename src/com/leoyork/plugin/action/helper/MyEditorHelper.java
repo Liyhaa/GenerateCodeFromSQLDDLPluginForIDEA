@@ -118,28 +118,21 @@ public class MyEditorHelper {
      */
     public static String getClassName(String name, String context){
         //获取类名
-        StringBuffer sb = new StringBuffer();
-        Pattern pattern = Pattern.compile("([A-Z][a-z]*)* *"+name+" *=");
+        StringBuffer sb;
+        String className = "";
+        Pattern pattern = Pattern.compile("([A-Z][a-z]*)+ +"+name+" *[=|;]");
         Matcher matcher = pattern.matcher(context);
-        if(matcher.find()) {
+        while (matcher.find()) {
             String group = matcher.group();
-            sb.append(group.trim().substring(0, matcher.group().indexOf(name)-1));
-        } else {
-            pattern = Pattern.compile("([A-Z][a-z]*)* *" + name + " *;");
-            matcher = pattern.matcher(context);
-            if(matcher.find()) {
-                String group = matcher.group();
-                sb.append(group.trim().substring(0, matcher.group().indexOf(name)));
-            }
+            className = group.trim().substring(0, matcher.group().indexOf(name)-1);
         }
-        String className = sb.toString();
 
         sb = new StringBuffer();
-        pattern = Pattern.compile("import .*"+className);
+        pattern = Pattern.compile("import .*"+className+";");
         matcher = pattern.matcher(context);
         if(matcher.find()) {
             String row = matcher.group();
-            sb.append(row.substring("import ".length()));
+            sb.append(row.substring("import ".length(), row.length()-1));
         } else {
             matcher = PACKAGE_ALL.matcher(context);
             while (matcher.find()) {
@@ -149,6 +142,9 @@ public class MyEditorHelper {
                 String group = matcher.group();
                 sb.append(group.substring("import ".length(), group.indexOf("*")) + className);
             }
+        }
+        if(0 == sb.length()) {
+            return className;
         }
 
         return sb.toString();
